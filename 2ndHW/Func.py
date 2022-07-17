@@ -5,12 +5,15 @@
 def Func(arg):
     if type(arg) != int and type(arg) != float:
         print("Invalid data")
+    List = []
     for i in range(1, arg + 1):
         Answer = (1 + (1/i))**i # Заметка при тестировании: при int((1 + (1/i))**i) будут одни лишь двойки
-        print(Answer)
+        List.append(Answer)
+    return List
 
-x = 10
-Func(x)
+x = 5
+List = Func(x)
+print(List)
 
 # Задача вроде как выполнена, но не так, как показана была на примере выполнения, если будут замечания
 # я их учту при перевыполнений этой задачи, а пока оставляю так
