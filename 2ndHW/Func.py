@@ -7,7 +7,7 @@ def Func(arg):
         print("Invalid data")
     List = []
     for i in range(1, arg + 1):
-        Answer = (1 + (1/i))**i # Заметка при тестировании: при int((1 + (1/i))**i) будут одни лишь двойки
+        Answer = (1 + (1/i))**i                     # Заметка при тестировании: при int((1 + (1/i))**i) будут одни лишь двойки
         List.append(Answer)
     return List
 
