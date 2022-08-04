@@ -6,7 +6,7 @@ def DeleteWords(path: str, arg: str):
         data = data.replace(arg, '')
         data = data.replace(arg.lower(), '')
         data = data.replace(arg.upper(), '')
-        pass
+        read.close()
     path = 'file2.txt'
     file = open(path, 'w', encoding='utf-8')
     file.write(data)
