@@ -13,7 +13,7 @@ def ReadFile():
 def NewAccount():
     Data = ReadFile()
     with open(init(), 'a', encoding='utf-8') as book:
-        NewAccount = f"\n{len(Data)}, {input('Пожалуйста, введите по примеру (ФИО, Номер):')} "
+        NewAccount = f"\n{len(Data)}, {input('Пожалуйста, введите по примеру (ФИО, Номер):')}"
         book.writelines(NewAccount)
         book.close()
 

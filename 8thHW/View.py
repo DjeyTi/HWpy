@@ -17,3 +17,4 @@ def GetContactInfo():
                 return
         print('Неверный ID, или ID который не существует')
         return
+    
