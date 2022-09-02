@@ -1,4 +1,4 @@
-Path = 'file.txt'
+Path = 'HW/8thHW/file.txt'
 
 def init():
     global Path
