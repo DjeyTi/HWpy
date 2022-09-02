@@ -35,7 +35,7 @@ async def NewAccount(update: Update, context: ContextTypes.DEFAULT_TYPE):
     msg = update.message.text
     items = msg.split()
     with open(init(), 'a', encoding='utf-8') as book:
-        NewAccount = f"\n{len(Data)}, {items[1]}, {items[2]}"
+        NewAccount = f"\n{len(Data)}, {items[1]} {items[2]}"
         book.writelines(NewAccount)
         book.close()
     await update.message.reply_text('Аккаунт создан')
@@ -47,5 +47,14 @@ async def ClearBook(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('Список контактов очищен')    
 
 async def Help(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(f'/hello \n/calculate "x (+, -, /, *) y" \n/newaccount "Имя, номер телефона" \n/checkinfo \n/clearbook')
+    await update.message.reply_text(f'/hello \n/calculate "x (+, -, /, *) y" \n/newaccount "Имя, номер телефона" \n/checkinfo \n/clearbook \n/getcontact "ID"')
 
+async def GetContactInfo(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    Data = ReadFile()
+    msg = update.message.text
+    Need = msg.split()
+    for i in Data:
+        String = i.split()
+        String[0].replace(',', '')
+        if Need[1] in String[0]:
+            await update.message.reply_text(i)
