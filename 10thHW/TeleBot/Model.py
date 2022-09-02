@@ -1,6 +1,3 @@
-from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-
 Path = 'HW/10thHW/TeleBot/file.txt'
 
 def init():

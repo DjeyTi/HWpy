@@ -3,7 +3,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from Model import init, ReadFile
 
 async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(f'Hi {update.effective_user.first_name}')
+    await update.message.reply_text(f'Добро, {update.effective_user.first_name}')
 
 def calculate(update: Update, context: ContextTypes.DEFAULT_TYPE):
     file = open('HW/10thHW/TeleBot/log.md', 'a')
@@ -21,7 +21,7 @@ def calculate(update: Update, context: ContextTypes.DEFAULT_TYPE):
         answer = float(items[1]) * float(items[3])
     else:
         return
-    return update.message.reply_text(f'The answer is {answer}')
+    return update.message.reply_text(f'Ответ - {answer}')
 
 async def ViewBook(update: Update, context: ContextTypes.DEFAULT_TYPE):
     with open(init(), 'r', encoding='utf-8') as book:
@@ -38,10 +38,14 @@ async def NewAccount(update: Update, context: ContextTypes.DEFAULT_TYPE):
         NewAccount = f"\n{len(Data)}, {items[1]}, {items[2]}"
         book.writelines(NewAccount)
         book.close()
-    await update.message.reply_text('New Account Created')
+    await update.message.reply_text('Аккаунт создан')
 
 async def ClearBook(update: Update, context: ContextTypes.DEFAULT_TYPE):
     with open(init(), 'w', encoding='utf-8') as book:
         book.write('ID, ФИО, Номер')
         book.close
-    await update.message.reply_text('Book cleared')    
+    await update.message.reply_text('Список контактов очищен')    
+
+async def Help(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(f'/hello \n/calculate "x (+, -, /, *) y" \n/newaccount "Имя, номер телефона" \n/checkinfo \n/clearbook')
+
